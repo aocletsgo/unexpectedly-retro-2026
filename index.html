@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>UNEXPECTEDLY RETRO 2026</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root {
+  --cream: #f4eee4;
+  --paper: #e8dfd0;
+  --brown: #4b382d;
+  --dark: #29241f;
+  --green: #3e4b3c;
+  --muted: #82766b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--dark);
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* =========================
+   OPENING
+========================= */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,255,255,.35), transparent 25%),
+    radial-gradient(circle at 80% 70%, rgba(62,75,60,.15), transparent 30%),
+    var(--paper);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .16;
+
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(50,40,30,.25) 0px,
+      rgba(50,40,30,.25) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.eyebrow {
+  letter-spacing: 5px;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(48px, 9vw, 110px);
+  line-height: .95;
+  margin: 0;
+  letter-spacing: -3px;
+  color: var(--brown);
+}
+
+.hero p {
+  font-size: 18px;
+  margin: 25px 0 35px;
+  color: var(--muted);
+}
+
+.enter-btn {
+  border: none;
+  background: var(--brown);
+  color: white;
+  padding: 16px 28px;
+  border-radius: 40px;
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.enter-btn:hover {
+  transform: translateY(-3px);
+  background: var(--green);
+}
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+  max-width: 1500px;
+  margin: auto;
+  padding: 60px 25px;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.intro h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  margin: 0 0 10px;
+}
+
+.intro p {
+  color: var(--muted);
+}
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 45px;
+}
+
+.controls button {
+  border: 1px solid #c8bcac;
+  background: transparent;
+  color: var(--brown);
+  padding: 10px 17px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.controls button:hover,
+.controls button.active {
+  background: var(--brown);
+  color: white;
+}
+
+.search {
+  display: block;
+  width: min(500px, 100%);
+  margin: 0 auto 35px;
+  padding: 14px 18px;
+  border: 1px solid #c8bcac;
+  border-radius: 30px;
+  background: rgba(255,255,255,.45);
+  outline: none;
+  font-family: inherit;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  margin-bottom: 80px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.section-title h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin: 0;
+}
+
+.section-title span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: #cfc3b3;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  columns: 4 250px;
+  column-gap: 18px;
+}
+
+.card {
+  break-inside: avoid;
+  margin-bottom: 18px;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 5px;
+  background: #ddd3c5;
+}
+
+.card img {
+  width: 100%;
+  display: block;
+  transition: transform .5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.035);
+}
+
+.video-card {
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--green);
+  color: white;
+}
+
+.video-card::before {
+  content: "▶";
+  font-size: 40px;
+  border: 1px solid rgba(255,255,255,.5);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+}
+
+.video-label {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,.55);
+  padding: 5px 9px;
+  border-radius: 15px;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,18,16,.94);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+}
+
+.lightbox.show {
+  display: flex;
+}
+
+.lightbox img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+}
+
+.close {
+  position: fixed;
+  top: 20px;
+  right: 25px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+.lightbox-info {
+  position: fixed;
+  bottom: 20px;
+  color: white;
+  font-size: 13px;
+  opacity: .8;
+}
+
+/* =========================
+   VIDEO MODAL
+========================= */
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(20,18,16,.94);
+  z-index: 101;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.video-modal.show {
+  display: flex;
+}
+
+.video-modal iframe {
+  width: min(1000px, 95vw);
+  height: min(650px, 80vh);
+  border: none;
+  border-radius: 8px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  text-align: center;
+  padding: 100px 20px;
+  background: var(--brown);
+  color: white;
+}
+
+footer h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 40px;
+  margin: 0 0 15px;
+}
+
+footer p {
+  opacity: .75;
+}
+
+/* =========================
+   LOADING
+========================= */
+
+.loading {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--muted);
+}
+
+.loading strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  main {
+    padding: 45px 15px;
+  }
+
+  .hero h1 {
+    letter-spacing: -1px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .gallery {
+    columns: 2 140px;
+    column-gap: 10px;
+  }
+
+  .card {
+    margin-bottom: 10px;
+  }
+
+  .section-title h2 {
+    font-size: 24px;
+  }
+
+  footer h2 {
+    font-size: 30px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     OPENING
+========================= -->
+
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      PMPU OTSKK • 2026
+    </div>
+
+    <h1>
+      UNEXPECTEDLY<br>
+      RETRO
+    </h1>
+
+    <p>
+      Three days. One team. So many memories.
+    </p>
+
+    <button class="enter-btn" onclick="enterMemories()">
+      ENTER THE MEMORIES
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main id="memories">
+
+  <div class="intro">
+
+    <h2>Our Little Archive</h2>
+
+    <p>
+      A collection of moments we didn't know<br>
+      would become memories.
+    </p>
+
+  </div>
+
+
+  <!-- SEARCH -->
+
+  <input
+    type="text"
+    id="search"
+    class="search"
+    placeholder="Search photos, videos, or moments..."
+  >
+
+
+  <!-- FILTER -->
+
+  <div class="controls">
+
+    <button
+      class="active"
+      onclick="setFilter('all', this)">
+      ALL
+    </button>
+
+    <button
+      onclick="setFilter('photo', this)">
+      PHOTOS
+    </button>
+
+    <button
+      onclick="setFilter('video', this)">
+      VIDEOS
+    </button>
+
+  </div>
+
+
+  <!-- GALLERY -->
+
+  <div id="galleryContainer">
+
+    <div class="loading">
+
+      <strong>Loading memories...</strong>
+
+      <span>
+        914 little pieces of our adventure
+      </span>
+
+    </div>
+
+  </div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <h2>
+    UNTIL OUR NEXT ADVENTURE...
+  </h2>
+
+  <p>
+    Thank you for the memories. 🤎
+  </p>
+
+</footer>
+
+
+<!-- =========================
+     IMAGE LIGHTBOX
+========================= -->
+
+<div
+  class="lightbox"
+  id="lightbox"
+  onclick="closeLightbox(event)"
+>
+
+  <div
+    class="close"
+    onclick="closeLightbox()">
+    ×
+  </div>
+
+  <img
+    id="lightboxImage"
+    src=""
+    alt="Memory"
+  >
+
+  <div
+    class="lightbox-info"
+    id="lightboxInfo">
+  </div>
+
+</div>
+
+
+<!-- =========================
+     VIDEO MODAL
+========================= -->
+
+<div
+  class="video-modal"
+  id="videoModal"
+>
+
+  <div
+    class="close"
+    onclick="closeVideo()">
+    ×
+  </div>
+
+  <iframe
+    id="videoFrame"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+
+<script>
+
+let allFiles = [];
+let currentFilter = "all";
+let currentSearch = "";
+
+
+/* =========================
+   ENTER
+========================= */
+
+function enterMemories() {
+
+  document
+    .getElementById("memories")
+    .scrollIntoView({
+      behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   LOAD JSON
+========================= */
+
+async function loadGallery() {
+
+  try {
+
+    const response =
+      await fetch("./photos.json");
+
+    if (!response.ok) {
+      throw new Error("photos.json not found");
+    }
+
+    allFiles = await response.json();
+
+    renderGallery();
+
+  } catch (error) {
+
+    document.getElementById("galleryContainer").innerHTML = `
+
+      <div class="loading">
+
+        <strong>Oops...</strong>
+
+        <span>
+          The memories are hiding somewhere.
+          Please check that photos.json is in the same folder.
+        </span>
+
+      </div>
+
+    `;
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function setFilter(filter, button) {
+
+  currentFilter = filter;
+
+  document
+    .querySelectorAll(".controls button")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+  button.classList.add("active");
+
+  renderGallery();
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+document
+  .getElementById("search")
+  .addEventListener("input", function() {
+
+    currentSearch =
+      this.value.toLowerCase();
+
+    renderGallery();
+
+  });
+
+
+/* =========================
+   RENDER
+========================= */
+
+function renderGallery() {
+
+  const container =
+    document.getElementById(
+      "galleryContainer"
+    );
+
+  let filtered =
+    allFiles.filter(file => {
+
+      const matchesType =
+        currentFilter === "all" ||
+        file.type === currentFilter;
+
+      const text =
+        (
+          file.fileName +
+          " " +
+          file.section
+        ).toLowerCase();
+
+      const matchesSearch =
+        !currentSearch ||
+        text.includes(currentSearch);
+
+      return matchesType && matchesSearch;
+
+    });
+
+
+  if (!filtered.length) {
+
+    container.innerHTML = `
+
+      <div class="loading">
+
+        <strong>No memories found</strong>
+
+        <span>
+          Try another search.
+        </span>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  /* GROUP BY SECTION */
+
+  const sections = {};
+
+  filtered.forEach(file => {
+
+    if (!sections[file.section]) {
+      sections[file.section] = [];
+    }
+
+    sections[file.section].push(file);
+
+  });
+
+
+  container.innerHTML = "";
+
+
+  Object.keys(sections).forEach(sectionName => {
+
+    const section =
+      document.createElement("section");
+
+    section.className = "section";
+
+
+    section.innerHTML = `
+
+      <div class="section-title">
+
+        <h2>
+          ${escapeHtml(sectionName)}
+        </h2>
+
+        <div class="section-line"></div>
+
+        <span>
+          ${sections[sectionName].length} memories
+        </span>
+
+      </div>
+
+      <div class="gallery"></div>
+
+    `;
+
+
+    const gallery =
+      section.querySelector(".gallery");
+
+
+    sections[sectionName].forEach(file => {
+
+      const card =
+        document.createElement("div");
+
+      card.className = "card";
+
+
+      if (file.type === "photo") {
+
+        card.innerHTML = `
+
+          <img
+            src="${file.previewUrl}"
+            alt="${escapeHtml(file.fileName)}"
+            loading="lazy"
+          >
+
+        `;
+
+        card.onclick = () =>
+          openImage(file);
+
+      }
+
+
+      else if (file.type === "video") {
+
+        card.classList.add("video-card");
+
+        card.innerHTML = `
+
+          <div class="video-label">
+            VIDEO
+          </div>
+
+        `;
+
+        card.onclick = () =>
+          openVideo(file);
+
+      }
+
+
+      gallery.appendChild(card);
+
+    });
+
+
+    container.appendChild(section);
+
+  });
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+function openImage(file) {
+
+  const lightbox =
+    document.getElementById("lightbox");
+
+  const image =
+    document.getElementById("lightboxImage");
+
+  const info =
+    document.getElementById("lightboxInfo");
+
+
+  image.src = file.previewUrl;
+
+  info.textContent =
+    file.fileName +
+    " • " +
+    file.section;
+
+
+  lightbox.classList.add("show");
+
+}
+
+
+function closeLightbox(event) {
+
+  if (
+    !event ||
+    event.target.id === "lightbox" ||
+    event.target.classList.contains("close")
+  ) {
+
+    document
+      .getElementById("lightbox")
+      .classList.remove("show");
+
+  }
+
+}
+
+
+/* =========================
+   VIDEO
+========================= */
+
+function openVideo(file) {
+
+  const modal =
+    document.getElementById("videoModal");
+
+  const frame =
+    document.getElementById("videoFrame");
+
+
+  frame.src =
+    "https://drive.google.com/file/d/" +
+    file.fileId +
+    "/preview";
+
+
+  modal.classList.add("show");
+
+}
+
+
+function closeVideo() {
+
+  const modal =
+    document.getElementById("videoModal");
+
+  const frame =
+    document.getElementById("videoFrame");
+
+
+  frame.src = "";
+
+  modal.classList.remove("show");
+
+}
+
+
+/* =========================
+   ESCAPE KEY
+========================= */
+
+document.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
+
+      document
+        .getElementById("lightbox")
+        .classList.remove("show");
+
+      closeVideo();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   SECURITY / TEXT
+========================= */
+
+function escapeHtml(text) {
+
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================
+   START
+========================= */
+
+loadGallery();
+
+</script>
+
+</body>
+</html>
